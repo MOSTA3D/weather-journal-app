@@ -1,0 +1,258 @@
+html,body{
+    height:100%;
+}
+*{
+    box-sizing: border-box;
+    margin:0;padding:0;
+}
+button{
+    cursor: pointer;
+    border: none;
+}
+textarea{
+    resize:none;
+    padding: 10px;
+}
+body{
+    display: grid;
+    grid-template-columns: repeat(11,1fr);
+    grid-template-rows: 60px auto;
+    background: #0b7892;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    position: relative;
+}
+
+nav.nav-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(51, 51, 51, 0.145);
+    direction: rtl;
+    font-family: cursive;
+}
+nav.nav-bar h2{
+    color: #f0d43a;
+
+}
+.nav-bar button{
+    margin-right: 50px;
+    color: #ddd;
+    height: 100%;
+    width: 150px;
+    font: 20px cursive;
+    background-color: transparent;
+    transition: all 0.2s ease;
+
+}
+.nav-bar button:hover{
+    color: #fff;
+    background-color: #11dabf88;
+    border-radius: 7%;
+}
+@media only screen and (min-width: 50em){
+    .nav-bar{
+        grid-row-start: 1;
+        grid-row-end: 2;
+        z-index: 2;
+    }
+}
+
+.back{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: 20px 1fr auto;
+    background-color:rgba(10, 55, 150, 0.604);
+    transition: opacity 0.3s ease;
+    z-index: 3;
+}
+
+#app{
+    position: relative;
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 30em;
+    background: #f23557;
+    border-radius: 7px;
+    color: #f0d43a;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    box-shadow: 3px 3px 3px #333;
+}
+@media only screen and (min-width: 50em){
+
+    .back {
+        position: static;
+        grid-row-start: 2;
+        grid-column-start: 7;
+        grid-column-end: 12;
+        z-index: 1;
+        background-color: transparent;
+    }
+}
+.closebutton{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #f00;
+    border: 1px solid rgb(189, 46, 46);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.closebutton:hover{
+    background-color:rgb(148, 0, 0);
+}
+.closebutton span{
+    width:2em;
+    height: 5px;
+    background-color: #ddd;
+    border-radius: 10px;
+    transform-origin: center;
+}
+.closebutton span:first-of-type{
+    transform: rotateZ(45deg);
+}
+.closebutton span:last-of-type{
+    transform: rotateZ(-45deg);
+}
+.dataholder{
+    grid-area: 2/1/4/11;
+    height: 100%;
+    perspective: 200px;
+}
+@media only screen and (min-width: 50em){
+    .dataholder{
+        grid-row-start: 2;
+        grid-column-start: 1;
+        grid-column-end: 6;
+    }
+}
+.dataholder ul li{
+    padding: 10px;
+    min-height: 100px;
+    position: relative;
+    background-color: rgb(225, 21, 123);
+    color: rgb(252, 252, 166);
+    font-size: 18px;
+    margin: 10px;
+    border-radius: 10px;
+    transform: rotateX(-3deg);
+    box-shadow: 2px 2px 5px #333;
+}
+.date{
+    position: absolute;
+    bottom: 10px;
+    right: 1em;
+    font-size: 12px;
+}
+
+.holder{
+    width: 90%;
+}
+.holder > *{
+    width:100%;
+}
+
+.entry{
+    background: rgba(59, 74, 107, .4);
+}
+
+
+.headline {
+    font: 2em 'Brush Script MT',cursive;
+}
+
+/*  Basic Styling To Override Default For Basic HTML Elements */
+label{
+    display:block;
+    font-size: 27px;
+}
+
+input{
+    display:block;
+    padding: 0 10px ;
+    height: 60px;
+    width: 320px;
+    background:#22b2da;
+    color: #f0d43a;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    border: none;
+}
+
+button#generate{
+    height: 100px;
+    background: #3b4a6b;
+    color: #f0d43a;
+    font-size: 26px;
+    font-family: 'Oswald', sans-serif;
+    border: none;
+    box-shadow: 2px 4px 5px #444;
+}
+h1{
+    font-size: 36px;
+}
+
+textarea{
+    background:#22b2da;
+    color: #f0d43a;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+}
+/* my toggle classes */
+
+.hide{
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.erase{
+    display: none;
+}
+/* end toggle classes */
+/* Reset style for HTML element on active to have no border*/
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+/* Style for Placeholder Text*/
+::placeholder { /* Firefox, Chrome, Opera */ 
+    color: #f0d43a; 
+    font-family: 'Oswald', sans-serif;
+
+} 
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
+    color: #f0d43a; 
+    font-family: 'Oswald', sans-serif;
+
+} 
+  
+::-ms-input-placeholder { /* Microsoft Edge */ 
+    color: #f0d43a; 
+    font-family: 'Oswald', sans-serif;
+
+} 
